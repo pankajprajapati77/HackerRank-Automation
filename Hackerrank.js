@@ -111,13 +111,13 @@ function questionSolver(url, idx){
             let waitforCheckBoxAndClickPromise = waitandClick(".checkbox-input");
             return waitforCheckBoxAndClickPromise
         })
-        .the(function(){
+        .then(function(){
             //select the box where code will be typed
             let waitforTextBoxPromise = cTab.waitForSelector(".custominput");
             return waitforTextBoxPromise;
         })
         .then(function(){
-            let codeWillBeTypedPromise = cTab.type(".custominput", answer[idx], {delay: 100});
+            let codeWillBeTypedPromise = cTab.type(".custominput", answer[idx]);
             return codeWillBeTypedPromise;
         })
         .then(function(){
